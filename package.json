@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production webpack -c ./build/webpack.config.js",
     "dev:rollup": "NODE_ENV=development rollup -w -c ./build/rollup.config.js",
     "build:rollup": "NODE_ENV=production rollup -c ./build/rollup.config.js",
-    "dev:vite": "vite --config ./build/vite.config.js",
+    "dev:vite": "vite --host --config ./build/vite.config.js",
     "build:vite": "vite build --config ./build/vite.config.js"
   },
   "keywords": [
