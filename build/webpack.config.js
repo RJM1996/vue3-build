@@ -10,10 +10,10 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const baseConfig = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: path.join(__dirname, 'src/index.js'),
+    index: path.join(__dirname, '../src/index.js'),
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../dist/dist-webpack'),
     filename: '[name].js',
   },
   module: {
@@ -47,12 +47,18 @@ const baseConfig = {
 if (process.env.NODE_ENV === 'development') {
   config = webpackMerge(baseConfig, {
     devtool: 'inline-cheap-module-source-map',
-    devServer: { static: { directory: path.join(__dirname) }, compress: true, port: 6001, hot: false, compress: false },
+    devServer: {
+      static: { directory: path.join(__dirname, '../') },
+      compress: true,
+      port: 6001,
+      hot: false,
+      compress: false,
+    },
     plugins: [
       new HtmlWebpackPlugin({
         title: 'Hello Vue',
         filename: 'index.html',
-        template: './index.html',
+        template: './index/index-webpack.html',
         minify: false,
         inject: false,
         templateParameters: {
@@ -72,7 +78,7 @@ else {
       new HtmlWebpackPlugin({
         title: 'Hello Vue',
         filename: 'index.html',
-        template: './index.html',
+        template: './index/index-webpack.html',
         minify: false,
         inject: false,
         templateParameters: {
